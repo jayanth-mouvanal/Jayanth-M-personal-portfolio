@@ -53,19 +53,19 @@ export default function ExperienceSection() {
     const [activeTab, setActiveTab] = useState(0);
 
     return (
-        <section id="experience" className="py-24 bg-slate-950">
-            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="experience" className="py-20 bg-slate-950 relative overflow-hidden">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="mb-12"
+                    className="text-center mb-16"
                 >
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
                         Work Experience
-                        <span className="block h-1 w-20 bg-cyan-500 mt-2" />
+                        <span className="block h-1 w-20 bg-cyan-500 mt-2 mx-auto" />
                     </h2>
                 </motion.div>
 

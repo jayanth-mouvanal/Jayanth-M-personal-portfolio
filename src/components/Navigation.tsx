@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Terminal, User, Code, Briefcase, Mail } from "lucide-react";
+import { Menu, X, Terminal, User, Code, Briefcase, Mail, Award } from "lucide-react";
 import Link from "next/link";
 
 const Logo = () => (
@@ -40,8 +40,9 @@ const Logo = () => (
 const navItems = [
     { name: "Home", href: "#", icon: Terminal },
     { name: "About", href: "#about", icon: User },
-    { name: "Projects", href: "#projects", icon: Code },
     { name: "Experience", href: "#experience", icon: Briefcase },
+    { name: "Certifications", href: "#certifications", icon: Award },
+    { name: "Projects", href: "#projects", icon: Code },
     { name: "Contact", href: "#contact", icon: Mail },
 ];
 
@@ -79,7 +80,7 @@ export default function Navigation() {
                             </div>
 
                             <motion.a
-                                href="/resume.pdf"
+                                href="/resume"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.1, rotate: 5 }}
@@ -93,7 +94,7 @@ export default function Navigation() {
                         {/* Mobile Menu Button */}
                         <div className="md:hidden flex items-center gap-4">
                             <motion.a
-                                href="/resume.pdf"
+                                href="/resume"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05 }}

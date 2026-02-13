@@ -6,6 +6,13 @@ import { Folder, ExternalLink, Github } from "lucide-react";
 export default function ProjectsSection() {
     const projects = [
         {
+            title: "Jayanth M Portfolio",
+            description: "A professional, high-performance portfolio website built by vibe coding with Antigravity, featuring glassmorphism and smooth motion animations.",
+            tags: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
+            link: "https://jayanth-m-personal-portfolio.vercel.app/",
+            github: "https://github.com/jayanth-mouvanal/Jayanth-M-personal-portfolio"
+        },
+        {
             title: "Antigravity Learning Agent",
             description: "An experimental agentic workflow using LLMs to self-correct code in real-time. Built with Python and LangChain.",
             tags: ["Python", "LangChain", "AI"],
@@ -30,17 +37,17 @@ export default function ProjectsSection() {
 
     return (
         <section id="projects" className="py-20 bg-slate-950">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-12"
+                    className="text-center mb-16"
                 >
-                    <h2 className="text-3xl font-bold text-white mb-4">
-                        FEATURED PROJECTS
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                        Featured Projects
+                        <span className="block h-1 w-20 bg-cyan-500 mt-2 mx-auto" />
                     </h2>
-                    <div className="h-1 w-20 bg-cyan-500 rounded-full" />
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -56,10 +63,20 @@ export default function ProjectsSection() {
                             <div className="flex justify-between items-start mb-4">
                                 <Folder className="w-10 h-10 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
                                 <div className="flex gap-4">
-                                    <a href={project.github} className="text-slate-400 hover:text-white transition-colors">
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-slate-400 hover:text-white transition-colors"
+                                    >
                                         <Github className="w-5 h-5" />
                                     </a>
-                                    <a href={project.link} className="text-slate-400 hover:text-white transition-colors">
+                                    <a
+                                        href={project.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-slate-400 hover:text-white transition-colors"
+                                    >
                                         <ExternalLink className="w-5 h-5" />
                                     </a>
                                 </div>

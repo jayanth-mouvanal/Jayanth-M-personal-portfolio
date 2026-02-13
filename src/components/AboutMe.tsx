@@ -10,8 +10,8 @@ export default function AboutMe() {
     ];
 
     return (
-        <section id="about" className="pt-4 pb-24 bg-slate-950 relative overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <section id="about" className="py-20 bg-slate-950 relative overflow-hidden">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="flex flex-col md:flex-row gap-16 items-center">
 
                     {/* Image Side */}
@@ -27,6 +27,7 @@ export default function AboutMe() {
                                 src="/jayanth-profile-v2.jpg"
                                 alt="Jayanth M"
                                 fill
+                                sizes="(max-width: 768px) 100vw, 320px"
                                 className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
                             />
                             <div className="absolute inset-0 bg-cyan-500/10 group-hover:bg-transparent transition-colors duration-500" />
