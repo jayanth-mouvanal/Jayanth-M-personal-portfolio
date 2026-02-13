@@ -5,7 +5,7 @@ import { ArrowRight, Database, Server, Brain } from "lucide-react";
 
 export default function AboutSection() {
     return (
-        <section id="about" className="py-20 bg-slate-950 relative overflow-hidden">
+        <section id="about" className="pt-10 pb-20 bg-slate-950 relative overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
                 <motion.div
@@ -59,9 +59,9 @@ export default function AboutSection() {
                         <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-500/20 transition-colors relative z-10">
                             <Brain className="w-6 h-6 text-purple-400" />
                         </div>
-                        <h3 className="text-xl font-semibold text-white mb-3 relative z-10">AI & Antigravity</h3>
+                        <h3 className="text-xl font-semibold text-white mb-3 relative z-10">AI & Agentic workflow</h3>
                         <p className="text-slate-400 text-sm leading-relaxed relative z-10">
-                            Building agentic workflows, exploring LLM capabilities, and creating "Antigravity" – a new paradigm of intelligent, self-correcting software.
+                            Building agentic workflows, exploring LLM capabilities, and creating enterprise grade apps with "Antigravity" – a new paradigm of intelligent, self-correcting software.
                         </p>
                     </motion.div>
 

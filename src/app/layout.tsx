@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains" });
 
 export const metadata: Metadata = {
-  title: "Jayanth M | Enterprise AI Architect",
+  title: "Jayanth M",
   description: "Portfolio of Jayanth M - Transitioning from Pega/Enterprise to Antigravity & Agentic AI.",
 };
 

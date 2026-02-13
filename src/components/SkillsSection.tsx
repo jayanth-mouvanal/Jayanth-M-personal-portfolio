@@ -6,7 +6,7 @@ const skills = [
     { category: "Core", items: ["Java", "Python", "TypeScript", "SQL"] },
     { category: "Enterprise", items: ["Pega Platform (CLSA)", "Oracle", "AWS", "Microservices"] },
     { category: "Modern Web", items: ["Next.js", "React", "Tailwind CSS", "Framer Motion"] },
-    { category: "AI & Agentic", items: ["LangChain", "OpenAI API", "Vector DBs", "RAG"] },
+    { category: "AI & Agentic", items: ["Antigravity", "OpenClaw", "Vector DBs", "Claude"] },
 ];
 
 export default function SkillsSection() {
