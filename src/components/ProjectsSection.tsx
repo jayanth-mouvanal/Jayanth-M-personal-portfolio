@@ -10,28 +10,48 @@ export default function ProjectsSection() {
             description: "A professional, high-performance portfolio website built by vibe coding with Antigravity, featuring glassmorphism and smooth motion animations.",
             tags: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
             link: "https://jayanth-m-personal-portfolio.vercel.app/",
-            github: "https://github.com/jayanth-mouvanal/Jayanth-M-personal-portfolio"
+            github: "https://github.com/jayanth-mouvanal/Jayanth-M-personal-portfolio",
+            hideLinks: false
         },
         {
-            title: "Antigravity Learning Agent",
-            description: "An experimental agentic workflow using LLMs to self-correct code in real-time. Built with Python and LangChain.",
-            tags: ["Python", "LangChain", "AI"],
-            link: "#",
-            github: "#"
+            title: "Sarga Ramanthali",
+            description: "A community-focused React application for a social and cultural organization in Kerala, featuring event management and community engagement tools.",
+            tags: ["React", "Vite", "JavaScript", "CSS3"],
+            link: "https://sarga-ramanthali.vercel.app/",
+            github: "https://github.com/jayanth-mouvanal/sarga-ramanthali",
+            hideLinks: false
         },
         {
             title: "Enterprise Pega Solution",
             description: "A large-scale case management system for a global financial institution, handling 1M+ transactions daily.",
             tags: ["Pega", "Java", "Oracle"],
             link: "#",
-            github: "#"
+            github: "#",
+            hideLinks: true
+        },
+        {
+            title: "VoyageArchitect (Travel Planner)",
+            description: "An AI-driven travel planning platform that uses RAG and LangChain to transform unstructured data like flight PDFs into interactive, optimized itineraries.",
+            tags: ["Next.js", "FastAPI", "LangChain", "AI", "Tailwind CSS"],
+            link: "#",
+            github: "#",
+            hideLinks: true
+        },
+        {
+            title: "Antigravity Learning Agent",
+            description: "An experimental agentic workflow using LLMs to self-correct code in real-time. Built with Python and LangChain.",
+            tags: ["Python", "LangChain", "AI"],
+            link: "#",
+            github: "#",
+            hideLinks: true
         },
         {
             title: "AI Resume Builder",
             description: "Next.js application that uses OpenAI to generate tailored resumes based on job descriptions.",
             tags: ["Next.js", "OpenAI API", "Tailwind"],
             link: "#",
-            github: "#"
+            github: "#",
+            hideLinks: true
         }
     ];
 
@@ -62,24 +82,26 @@ export default function ProjectsSection() {
                         >
                             <div className="flex justify-between items-start mb-4">
                                 <Folder className="w-10 h-10 text-cyan-400 group-hover:text-cyan-300 transition-colors" />
-                                <div className="flex gap-4">
-                                    <a
-                                        href={project.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-slate-400 hover:text-white transition-colors"
-                                    >
-                                        <Github className="w-5 h-5" />
-                                    </a>
-                                    <a
-                                        href={project.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-slate-400 hover:text-white transition-colors"
-                                    >
-                                        <ExternalLink className="w-5 h-5" />
-                                    </a>
-                                </div>
+                                {!project.hideLinks && (
+                                    <div className="flex gap-4">
+                                        <a
+                                            href={project.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-slate-400 hover:text-white transition-colors"
+                                        >
+                                            <Github className="w-5 h-5" />
+                                        </a>
+                                        <a
+                                            href={project.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-slate-400 hover:text-white transition-colors"
+                                        >
+                                            <ExternalLink className="w-5 h-5" />
+                                        </a>
+                                    </div>
+                                )}
                             </div>
 
                             <h3 className="text-xl font-semibold text-slate-100 mb-2 group-hover:text-cyan-400 transition-colors">

@@ -19,14 +19,38 @@ const PegaIcon = () => (
 
 export default function ContactSection() {
     const [year, setYear] = useState<number | null>(null);
+    const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
     useEffect(() => {
         setYear(new Date().getFullYear());
     }, []);
 
+    const handleFormSubmit = () => {
+        setStatus('sending');
+        // The actual submission is handled by the hidden iframe
+    };
+
+    const handleIframeLoad = () => {
+        if (status === 'sending') {
+            setStatus('success');
+            // Reset form fields after success
+            const form = document.getElementById('contact-form') as HTMLFormElement;
+            if (form) form.reset();
+            setTimeout(() => setStatus('idle'), 5000);
+        }
+    };
+
     return (
         <section id="contact" className="py-20 bg-slate-950 relative overflow-hidden">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+                {/* Hidden Iframe for Form Submission */}
+                <iframe
+                    name="hidden_iframe"
+                    id="hidden_iframe"
+                    style={{ display: 'none' }}
+                    onLoad={handleIframeLoad}
+                />
 
                 {/* Section Heading */}
                 <motion.div
@@ -132,12 +156,28 @@ export default function ContactSection() {
                         transition={{ duration: 0.8 }}
                         className="bg-slate-900/50 backdrop-blur-xl p-8 rounded-2xl border border-slate-800 shadow-2xl"
                     >
-                        <form className="space-y-6">
+                        <form
+                            id="contact-form"
+                            action="https://docs.google.com/forms/d/e/1FAIpQLSdiX0cW5SFy_JGoiSGlkmjStvDjmuBRiyR95qcCBpGSAJWSsw/formResponse"
+                            method="POST"
+                            target="hidden_iframe"
+                            onSubmit={handleFormSubmit}
+                            className="space-y-6"
+                        >
+                            {/* Google Forms Hidden Fields */}
+                            <input type="hidden" name="fvv" value="1" />
+                            <input type="hidden" name="fbzx" value="6536786157219481434" />
+                            <input type="hidden" name="pageHistory" value="0" />
+                            <input type="hidden" name="partialResponse" value='[null,null,"6536786157219481434"]' />
+                            <input type="hidden" name="submissionTimestamp" value="-1" />
+
                             <div>
                                 <input
                                     type="text"
                                     id="name"
+                                    name="entry.1387317534"
                                     placeholder="Your Name"
+                                    required
                                     suppressHydrationWarning
                                     className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-4 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all font-sans"
                                 />
@@ -147,7 +187,9 @@ export default function ContactSection() {
                                 <input
                                     type="email"
                                     id="email"
+                                    name="entry.990562747"
                                     placeholder="Your Email"
+                                    required
                                     suppressHydrationWarning
                                     className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-4 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all font-sans"
                                 />
@@ -156,24 +198,47 @@ export default function ContactSection() {
                             <div>
                                 <textarea
                                     id="message"
+                                    name="entry.663702157"
                                     rows={4}
                                     placeholder="Your Message"
+                                    required
                                     suppressHydrationWarning
                                     className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-4 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all resize-none font-sans"
                                 />
                             </div>
 
                             <motion.button
+                                type="submit"
+                                disabled={status === 'sending'}
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 suppressHydrationWarning
-                                className="w-full bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg shadow-cyan-900/20"
+                                className={`w-full font-bold py-4 rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg ${status === 'success'
+                                    ? 'bg-green-600 hover:bg-green-500 shadow-green-900/20'
+                                    : status === 'error'
+                                        ? 'bg-red-600 hover:bg-red-500 shadow-red-900/20'
+                                        : 'bg-cyan-600 hover:bg-cyan-500 shadow-cyan-900/20'
+                                    } disabled:opacity-70 disabled:cursor-not-allowed`}
                             >
-                                <Send className="w-4 h-4" />
-                                Send Message
+                                {status === 'sending' ? (
+                                    <>
+                                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                        Sending...
+                                    </>
+                                ) : status === 'success' ? (
+                                    <>Sent Successfully!</>
+                                ) : status === 'error' ? (
+                                    <>Failed to Send</>
+                                ) : (
+                                    <>
+                                        <Send className="w-4 h-4" />
+                                        Send Message
+                                    </>
+                                )}
                             </motion.button>
                         </form>
                     </motion.div>
+
                 </div>
 
                 {/* Footer Text */}
